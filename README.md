@@ -9,6 +9,10 @@ eksctl create cluster -f create-cluster.yaml
 eksctl delete cluster -f create-cluster.yaml
 
 ```
+## To generate cluster template 
+```
+eksctl create cluster --name development --dry-run > template.yaml
+```
 
 ## Create & Associate IAM OIDC Provider for our EKS Cluster
 - To enable and use AWS IAM roles for Kubernetes service accounts on our EKS cluster, we must create & associate OIDC identity provider.
