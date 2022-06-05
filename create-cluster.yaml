@@ -39,3 +39,4 @@ managedNodeGroups:
 # for more details 
  # https://eksctl.io/usage/schema/
  # https://eksctl.io/usage/creating-and-managing-clusters/
+ # https://eksctl.io/usage/dry-run/
