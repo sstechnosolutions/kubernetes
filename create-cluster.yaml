@@ -1,0 +1,34 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: eksdemo-live
+  region: us-east-1
+vpc:
+  subnets:
+    public:
+      us-east-1a: { id: subnet-71e20a3d }
+      us-east-1b: { id: subnet-1c765343 }
+      us-east-1c: { id: subnet-6d39610b }
+managedNodeGroups:
+  - name: eksdemo-live-nodegroup
+    amiFamily: AmazonLinux2
+    subnets:
+      - subnet-71e20a3d
+      - subnet-1c765343
+      - subnet-6d39610b
+    instanceType: t3.medium 
+    desiredCapacity: 2
+    minSize: 2
+    maxSize: 2
+    volumeSize: 20
+    propagateASGTags: true
+    ssh:
+      allow: true
+      publicKeyName: kube-demo
+    iam:
+      withAddonPolicies:
+        externalDNS: true
+        imageBuilder: true
+        appMesh: true
+        albIngress: true
