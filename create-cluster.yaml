@@ -4,6 +4,8 @@ kind: ClusterConfig
 metadata:
   name: eksdemo-live
   region: us-east-1
+iam:
+  withOIDC: true
 vpc:
   subnets:
     public:
@@ -32,3 +34,8 @@ managedNodeGroups:
         imageBuilder: true
         appMesh: true
         albIngress: true
+
+
+# for more details 
+ # https://eksctl.io/usage/schema/
+ # https://eksctl.io/usage/creating-and-managing-clusters/
